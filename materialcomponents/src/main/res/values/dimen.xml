@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--floatingactionbutton-->
+    <dimen name="fab_button_size">56dp</dimen>
+    <dimen name="fab_inner_image_size">24dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_shadow_size">12dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
+
+    <!--materialinputview-->
+    <dimen name="top_and_bottom_padding">16dp</dimen>
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="default_labels_size">12sp</dimen>
+
+    <dimen name="fb_horizontal_size">8dp</dimen>
+
+</resources>

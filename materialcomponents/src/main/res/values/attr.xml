@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--buttons-->
+        <!--FloatingActionButton-->
+    <declare-styleable name="FloatingActionButton">
+        <attr name="button_color" format="color"/>
+        <attr name="inner_image" format="reference"/>
+        <attr name="color_ripple" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="FlatButton">
+        <attr name="button_dark_theme" format="boolean"/>
+    </declare-styleable>
+
+    <!--TextFields-->
+        <!--NormalTextField-->
+    <declare-styleable name="NormalTextField">
+        <attr name="dark_theme" format="boolean"/>
+        <attr name="text_length_limit" format="integer"/>
+        <attr name="labels" format="string"/>
+        <attr name="bottom_labels" format="string"/>
+        <attr name="limit_warning_color" format="color"/>
+        <attr name="bottom_labels_limit_warning" format="string"/>
+        <attr name="text_size" format="integer"/>
+        <attr name="labels_size" format="integer"/>
+        <attr name="divider_color" format="reference"/>
+        <attr name="labels_color" format="reference"/>
+        <attr name="bottom_labels_color" format="reference"/>
+        <attr name="default_text" format="string"/>
+    </declare-styleable>
+        <!--PasswordTextFields-->
+    <declare-styleable name="PasswordTextField">
+        <attr name="visibility_image" format="reference"/>
+        <attr name="visibility_off_image" format="reference"/>
+    </declare-styleable>
+</resources>

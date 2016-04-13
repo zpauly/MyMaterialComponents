@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--MaterialInputView-->
+    <style name="InputView.Edittext" parent="android:Widget.EditText">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+    <style name="InputView.Labels" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/default_labels_size</item>
+    </style>
+</resources>

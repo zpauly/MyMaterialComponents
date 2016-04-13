@@ -9,6 +9,7 @@
     </declare-styleable>
     <declare-styleable name="FlatButton">
         <attr name="button_dark_theme" format="boolean"/>
+        <attr name="button_text_color" format="color"/>
     </declare-styleable>
 
     <!--TextFields-->

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, FloatingActionButtonActivity.class);
+                intent.setClass(MainActivity.this, ButtonActivity.class);
                 startActivity(intent);
             }
         });

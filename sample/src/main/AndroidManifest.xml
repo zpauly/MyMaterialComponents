@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".activity.FloatingActionButtonActivity"/>
         <activity android:name=".activity.MaterialInputViewActivity"/>
+        <activity android:name=".activity.FlatButtonActivity"/>
+        <activity android:name=".activity.ButtonActivity"/>
     </application>
 
 </manifest>

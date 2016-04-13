@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zpauly.materialcomponents.buttons.FlatButton;
 import com.zpauly.sample.R;
@@ -32,7 +33,7 @@ public class RecyclerViewAdater extends RecyclerView.Adapter<RecyclerViewAdater.
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.mTextView.setText("FlatButton" + position);
     }
 
@@ -42,8 +43,6 @@ public class RecyclerViewAdater extends RecyclerView.Adapter<RecyclerViewAdater.
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        /*@Bind(R.id.flatbutton)
-        protected FlatButton mFlatButton;*/
         @Bind(R.id.fab_recyclerview_item_text)
         protected TextView mTextView;
 

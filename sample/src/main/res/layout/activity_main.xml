@@ -28,14 +28,14 @@
                 android:id="@+id/fab_activity_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="FloatingActionButtonActivity"/>
+                android:text="ButtonActivity"/>
 
             <Button
                 android:id="@+id/mit_activity_button"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MaterialInputTextActivity"/>
+                android:text="TextFieldsActivity"/>
 
         </LinearLayout>
 

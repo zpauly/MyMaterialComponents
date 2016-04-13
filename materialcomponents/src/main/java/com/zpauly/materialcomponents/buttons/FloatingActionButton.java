@@ -29,6 +29,7 @@ import com.zpauly.scrolllistener.ListViewScrollListener;
 import com.zpauly.scrolllistener.NestedScrollViewScrollListener;
 import com.zpauly.scrolllistener.RecyclerViewScrollListener;
 import com.zpauly.scrolllistener.ScrollViewListener;
+import com.zpauly.utils.ApiUtils;
 import com.zpauly.utils.ButtonImageLoader;
 
 import com.zpauly.floatingactionbutton.R;
@@ -123,7 +124,10 @@ public class FloatingActionButton extends ImageButton {
 
         RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{{}},
                 new int[]{mColorRipple}), layerDrawable, null);
-        return rippleDrawable;
+        if (ApiUtils.hasLollipopApi())
+            return rippleDrawable;
+        else
+            return layerDrawable;
     }
 
     private void setButtonMargins() {

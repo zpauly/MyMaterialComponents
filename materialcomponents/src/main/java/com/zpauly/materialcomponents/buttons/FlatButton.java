@@ -4,19 +4,22 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.CornerPathEffect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.graphics.drawable.shapes.RectShape;
-import android.os.IInterface;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
+import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.zpauly.floatingactionbutton.R;
+import com.zpauly.utils.ApiUtils;
 import com.zpauly.utils.ColorUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -31,6 +34,7 @@ public class FlatButton extends Button {
     private int[][] states;
     private int[] bgColors;
     private int[] textColors;
+    private Map<Integer, Drawable> bgDrawables;
 
     public FlatButton(Context context) {
         super(context);
@@ -67,8 +71,11 @@ public class FlatButton extends Button {
                 0,
                 getResources().getDimensionPixelOffset(R.dimen.fb_horizontal_size),
                 0);
+        drawableBackground();
 
-        setBackgroundDrawable(drawableBackground());
+        setColorsViaStates();
+        Drawable drawableNormal = bgDrawables.get(states[0][0]);
+        setBackground(drawableNormal);
     }
 
     private void setAttributeSet(AttributeSet attrs) {
@@ -84,13 +91,20 @@ public class FlatButton extends Button {
         typedArray.recycle();
     }
 
-    private Drawable drawableBackground() {
-        StateListDrawable stateListDrawable = new StateListDrawable();
-        for (int i = 0; i < 6; i++) {
-            stateListDrawable.addState(states[i], drawGradientDrawable(i));
+    private void drawableBackground() {
+        bgDrawables = new HashMap<>();
+        if (!ApiUtils.hasLollipopApi()) {
+            for (int i = 0; i < 6; i++) {
+                bgDrawables.put(states[i][0], drawGradientDrawable(i));
+            }
+        } else {
+            for (int i = 0; i < 6; i++) {
+                RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{{}}, new int[]{bgColors[i]}),
+                        drawGradientDrawable(i),
+                        null);
+                bgDrawables.put(states[i][0], rippleDrawable);
+            }
         }
-
-        return stateListDrawable;
     }
 
     private GradientDrawable drawGradientDrawable(int i) {
@@ -100,6 +114,38 @@ public class FlatButton extends Button {
         drawable.setColor(bgColors[i]);
 
         return drawable;
+    }
+
+    private void setColorsViaStates() {
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        Drawable drawablePressed = bgDrawables.get(states[4][0]);
+                        setBackground(drawablePressed);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Drawable drawableNormal = bgDrawables.get(states[0][0]);
+                        setBackground(drawableNormal);
+                        break;
+                }
+                return false;
+            }
+        });
+
+        setOnFocusChangeListener(new OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    Drawable drawableFocused = bgDrawables.get(states[2][0]);
+                    setBackground(drawableFocused);
+                } else {
+                    Drawable drawableNormal = bgDrawables.get(states[0][0]);
+                    setBackground(drawableNormal);
+                }
+            }
+        });
     }
 
     private void setStatesAndColors() {
@@ -149,11 +195,22 @@ public class FlatButton extends Button {
         }
     }
 
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (enabled) {
+            Drawable drawableNormal = bgDrawables.get(states[0][0]);
+            setBackground(drawableNormal);
+        } else {
+            Drawable drawableDisabled = bgDrawables.get(states[1][0]);
+            setBackground(drawableDisabled);
+        }
+    }
+
     @SuppressWarnings("deprecation")
     public void setDarkTheme(boolean isDarkTheme) {
         this.isDarkTheme = isDarkTheme;
         setStatesAndColors();
-        setBackgroundDrawable(drawableBackground());
         invalidate();
     }
 

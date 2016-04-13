@@ -32,8 +32,6 @@ public class FlatButtonActivity extends AppCompatActivity {
         setupToolbar();
 
         mFlatButton1.setText("FlatButton1");
-        mFlatButton1.setDarkTheme(true);
-        mFlatButton1.setEnabled(false);
         mFlatButton1.setMaterialTextColor(getResources().getColor(R.color.colorAccent));
     }
 

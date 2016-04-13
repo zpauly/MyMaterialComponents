@@ -31,7 +31,7 @@ import com.zpauly.scrolllistener.RecyclerViewScrollListener;
 import com.zpauly.scrolllistener.ScrollViewListener;
 import com.zpauly.utils.ButtonImageLoader;
 
-import com.zpauly.materialcomponents.R;
+import com.zpauly.floatingactionbutton.R;
 /**
  * Created by zpauly on 16-4-6.
  */

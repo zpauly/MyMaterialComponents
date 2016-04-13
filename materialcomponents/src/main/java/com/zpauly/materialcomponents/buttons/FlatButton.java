@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.RippleDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
 import android.widget.Button;
 
@@ -53,19 +56,6 @@ public class FlatButton extends Button {
 
     private void initFlatButton(AttributeSet attrs) {
         setAttributeSet(attrs);
-
-        setColors();
-        states = new int[][] {
-                new int[]{android.R.attr.state_enabled},
-                new int[]{-android.R.attr.state_enabled},
-                new int[]{android.R.attr.state_focused},
-                new int[]{-android.R.attr.state_focused},
-                new int[]{android.R.attr.state_pressed},
-                new int[]{-android.R.attr.state_pressed},
-        };
-        setPadding(getResources().getDimensionPixelOffset(R.dimen.fb_horizontal_size), 0, getResources().getDimensionPixelOffset(R.dimen.fab_button_size), 0);
-        setMinWidth(88);
-        setBackground(null);
     }
 
     private void setAttributeSet(AttributeSet attrs) {
@@ -73,47 +63,8 @@ public class FlatButton extends Button {
         isDarkTheme = typedArray.getBoolean(R.styleable.FlatButton_button_dark_theme, false);
         typedArray.recycle();
 
-        isEnabled = true;
+        /*isEnabled = true;
         isFocused = isFocused();
-        isPressed = false;
-    }
-
-    private void setColors() {
-        if (!isDarkTheme) {
-            bgColors = new int[] {
-                    Color.argb(0, 153, 153, 153),
-                    Color.argb(0, 153, 153, 153),
-                    Color.argb(20, 153, 153, 153),
-                    Color.argb(0, 153, 153, 153),
-                    Color.argb(40, 153, 153, 153),
-                    Color.argb(0, 153, 153, 153),
-            };
-            textColors = new int[] {
-                    Color.argb(87, 255, 255, 255),
-                    Color.argb(26, 255, 255, 255),
-                    Color.argb(87, 255, 255, 255),
-                    Color.argb(87, 255, 255, 255),
-                    Color.argb(87, 255, 255, 255),
-                    Color.argb(87, 255, 255, 255),
-            };
-        } else {
-            bgColors = new int[] {
-                    Color.argb(0, 204, 204, 204),
-                    Color.argb(0, 204, 204, 204),
-                    Color.argb(13, 204, 204, 204),
-                    Color.argb(0, 204, 204, 204),
-                    Color.argb(25, 204, 204, 204),
-                    Color.argb(0, 204, 204, 204),
-            };
-            textColors = new int[] {
-                    Color.argb(100, 255, 255, 255),
-                    Color.argb(30, 255, 255, 255),
-                    Color.argb(100, 255, 255, 255),
-                    Color.argb(100, 255, 255, 255),
-                    Color.argb(100, 255, 255, 255),
-                    Color.argb(100, 255, 255, 255),
-            };
-        }
-        setTextColor(new ColorStateList(states, textColors));
+        isPressed = false;*/
     }
 }

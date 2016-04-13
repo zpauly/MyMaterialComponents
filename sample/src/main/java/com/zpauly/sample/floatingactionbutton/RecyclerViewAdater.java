@@ -33,7 +33,7 @@ public class RecyclerViewAdater extends RecyclerView.Adapter<RecyclerViewAdater.
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mFlatButton.setText("FlatButton" + position);
+        holder.mTextView.setText("FlatButton" + position);
     }
 
     @Override
@@ -42,8 +42,10 @@ public class RecyclerViewAdater extends RecyclerView.Adapter<RecyclerViewAdater.
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.flatbutton)
-        protected FlatButton mFlatButton;
+        /*@Bind(R.id.flatbutton)
+        protected FlatButton mFlatButton;*/
+        @Bind(R.id.fab_recyclerview_item_text)
+        protected TextView mTextView;
 
         public MyViewHolder(View itemView) {
             super(itemView);

@@ -12,13 +12,9 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <com.zpauly.materialcomponents.TextFields.NormalTextField
         android:id="@+id/first_inputview"
-        android:layout_margin="16dp"
+        android:padding="15dp"
         app:bottom_labels="this is bottom labels"
         app:labels="this is labels"
         app:divider_color="@color/colorAccent"
@@ -29,21 +25,12 @@
         android:id="@+id/second_inputview"
         app:bottom_labels="asdfasdfasdfa"
         android:layout_margin="16dp"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_alignParentStart="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"/>
-
-
-
-    </RelativeLayout>
+    <EditText
+        android:text="100dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

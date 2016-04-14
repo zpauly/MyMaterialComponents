@@ -7,13 +7,11 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.zpauly.floatingactionbutton.R;
 import com.zpauly.utils.ApiUtils;
 import com.zpauly.utils.ColorUtils;
@@ -54,13 +52,6 @@ public class FlatButton extends Button {
         initFlatButton(attrs);
     }
 
-    public FlatButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        mContext = context;
-        initFlatButton(attrs);
-
-    }
-
     @SuppressWarnings("deprecation")
     private void initFlatButton(AttributeSet attrs) {
         setAttributeSet(attrs);
@@ -99,7 +90,7 @@ public class FlatButton extends Button {
             }
         } else {
             for (int i = 0; i < 6; i++) {
-                RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{{}}, new int[]{bgColors[i]}),
+                RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(new int[][]{{}}, new int[]{ColorUtils.darkenColor(bgColors[i])}),
                         drawGradientDrawable(i),
                         null);
                 bgDrawables.put(states[i][0], rippleDrawable);

@@ -44,8 +44,9 @@ public class NormalTextField extends LinearLayout {
     private int mDividerColor;
     private int mLabelsColor;
     private int mBottomLabelsColor;
-    private int mTextSize;
-    private int mLabelsSize;
+    private float mTextSize;
+    private float mLabelsSize;
+    private float mBottomLabelsSize;
     private int mTextLengthLimit;
     private int mLimitWarningColor;
 
@@ -123,8 +124,9 @@ public class NormalTextField extends LinearLayout {
         mDividerColor = typedArray.getColor(R.styleable.NormalTextField_divider_color, -1);
         mLabelsColor = typedArray.getColor(R.styleable.NormalTextField_labels_color, Color.argb(54, 0, 0, 0));
         mBottomLabelsColor = typedArray.getColor(R.styleable.NormalTextField_bottom_labels_color, mDividerColor);
-        mTextSize = typedArray.getInt(R.styleable.NormalTextField_text_size, -1);
-        mLabelsSize = typedArray.getInt(R.styleable.NormalTextField_labels_size, -1);
+        mTextSize = typedArray.getFloat(R.styleable.NormalTextField_text_size, -1);
+        mLabelsSize = typedArray.getFloat(R.styleable.NormalTextField_labels_size, -1);
+        mBottomLabelsSize = typedArray.getFloat(R.styleable.NormalTextField_bottom_labels_size, -1);
         mDefaultText = typedArray.getString(R.styleable.NormalTextField_default_text);
         mTextLengthLimit = typedArray.getInt(R.styleable.NormalTextField_text_length_limit, -1);
         mLimitWarning = typedArray.getString(R.styleable.NormalTextField_bottom_labels_limit_warning);
@@ -340,6 +342,7 @@ public class NormalTextField extends LinearLayout {
     public void setLabels(String mLabels) {
         this.mLabels = mLabels;
         mHasLabels = true;
+        mLabelsTextView.setText(mLabels);
     }
 
     public String getBottomLabels() {
@@ -349,6 +352,7 @@ public class NormalTextField extends LinearLayout {
     public void setBottomLabels(String mBottomLabels) {
         this.mBottomLabels = mBottomLabels;
         mHasBottomLabels = true;
+        mBottomLabelsTextView.setText(mBottomLabels);
     }
 
     public boolean isIsDarkTheme() {
@@ -367,20 +371,28 @@ public class NormalTextField extends LinearLayout {
         this.mDividerColor = mDividerColor;
     }
 
-    public int getTextSize() {
+    public float getTextSize() {
         return mTextSize;
     }
 
-    public void setTextSize(int mTextSize) {
+    public void setTextSize(float mTextSize) {
         this.mTextSize = mTextSize;
+        mEditText.setTextSize(mTextSize);
     }
 
-    public int getLabelsSize() {
+    public float getLabelsSize() {
         return mLabelsSize;
     }
 
-    public void setLabelsSize(int mLabelsSize) {
+    public void setLabelsSize(float mLabelsSize) {
         this.mLabelsSize = mLabelsSize;
+        mLabelsTextView.setTextSize(mLabelsSize);
+    }
+
+    public void setBottomLabelsSize(float mBottomLabelsSize) {
+        this.mBottomLabelsSize = mBottomLabelsSize;
+        mBottomLabelsTextView.setTextSize(mBottomLabelsSize);
+        mLimitTextView.setTextSize(mBottomLabelsSize);
     }
 
     public String getText() {

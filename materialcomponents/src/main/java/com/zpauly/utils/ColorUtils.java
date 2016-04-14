@@ -15,4 +15,18 @@ public class ColorUtils {
         newColor = Color.argb(alpha, r, g, b);
         return newColor;
     }
+
+    public static int darkenColor(int color) {
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= 0.7f;
+        return Color.HSVToColor(hsv);
+    }
+
+    public static int lightenColor(int color) {
+        float[] hsv = new float[3];
+        Color.colorToHSV(color, hsv);
+        hsv[2] *= 1.3f;
+        return Color.HSVToColor(hsv);
+    }
 }

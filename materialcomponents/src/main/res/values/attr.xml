@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--rippleview-->
+    <declare-styleable name="RippleView">
+        <attr name="ripple_color" format="color" />
+        <attr name="alpha_factor" format="float" />
+        <attr name="hover" format="boolean" />
+    </declare-styleable>
+
     <!--buttons-->
         <!--FloatingActionButton-->
     <declare-styleable name="FloatingActionButton">
@@ -11,6 +19,9 @@
         <attr name="button_dark_theme" format="boolean"/>
         <attr name="button_text_color" format="color"/>
     </declare-styleable>
+    <declare-styleable name="RaisedButton">
+
+    </declare-styleable>
 
     <!--TextFields-->
         <!--NormalTextField-->
@@ -21,8 +32,9 @@
         <attr name="bottom_labels" format="string"/>
         <attr name="limit_warning_color" format="color"/>
         <attr name="bottom_labels_limit_warning" format="string"/>
-        <attr name="text_size" format="integer"/>
-        <attr name="labels_size" format="integer"/>
+        <attr name="text_size" format="float"/>
+        <attr name="labels_size" format="float"/>
+        <attr name="bottom_labels_size" format="float"/>
         <attr name="divider_color" format="reference"/>
         <attr name="labels_color" format="reference"/>
         <attr name="bottom_labels_color" format="reference"/>
